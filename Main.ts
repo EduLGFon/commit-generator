@@ -1,3 +1,4 @@
+let count = 0;
 // setInterval(async () => {
 const files = ['test', 'bah', 'main', 'index', 'data', 'log', 'output', 'source', 'api', 'server', 'prototypes'];
 for (const file of files) {
@@ -6,10 +7,13 @@ for (const file of files) {
     await Deno.writeFile(`src/${file}.ts`, data, { create: true });
 }
 
-const commits = ['small bug fixes', 'fixing bugs', 'small improvements', 'updating old code', 'cleaning up this trash']
-const commands = ['git add .', `git commit -m ${random(commits)}`, 'git push origin master'];
+// const commits = ['small bug fixes', 'fixing bugs', 'small improvements', 'updating old code', 'cleaning up this trash']
+const commands = ['deno fmt src/', 'git add .', `git commit -m 'commit${++count}'`, 'git push origin master'];
 
 for (const cmd of commands) {
+    // console.log(cmd);
+    // continue;
+    
     const process = Deno.run({
         cmd: cmd.split(' '),
         stderr: 'piped',
@@ -35,5 +39,5 @@ function convert(data: string | BufferSource): string | Uint8Array {
 }
 
 function random(array: string[]) {
-    return array[Math.round(Math.random()) * array.length];
+    return array[Math.floor(Math.random() * array.length)];
 }

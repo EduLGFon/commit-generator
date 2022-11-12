@@ -1,4 +1,4 @@
-let count = 0;
+let count = 1;
 // setInterval(async () => {
 const files = ['test', 'bah', 'main', 'index', 'data', 'log', 'output', 'source', 'api', 'server', 'prototypes'];
 for (const file of files) {
@@ -8,7 +8,7 @@ for (const file of files) {
 }
 
 // const commits = ['small bug fixes', 'fixing bugs', 'small improvements', 'updating old code', 'cleaning up this trash']
-const commands = ['deno fmt src/', 'git add .', `git commit -m 'commit${++count}'`, 'git push origin master'];
+const commands = ['deno fmt src/', 'git add .', `git commit -m "commit${++count}"`, 'git push origin master'];
 
 for (const cmd of commands) {
     // console.log(cmd);

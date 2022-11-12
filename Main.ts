@@ -35,5 +35,5 @@ function convert(data: string | BufferSource): string | Uint8Array {
 }
 
 function random(array: string[]) {
-    return array[Math.random() * array.length];
+    return array[Math.round(Math.random()) * array.length];
 }

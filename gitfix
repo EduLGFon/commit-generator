@@ -1,7 +1,8 @@
+# Code
 git filter-branch --env-filter '
-OLD_EMAIL="lucas_gif@proton.me"
-CORRECT_NAME="EduGFon"
-CORRECT_EMAIL="edugfon@gmail.com"
+OLD_EMAIL="xxxxx@gmail.com"
+CORRECT_NAME="xxxxx"
+CORRECT_EMAIL="xxxxxx@gmail.com"
 
 if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
 then
@@ -15,5 +16,5 @@ then
 fi
 ' --tag-name-filter cat -- --branches --tags
 
-
+# CLI
 git push --force --tags origin 'refs/heads/*'
